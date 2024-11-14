@@ -1,0 +1,133 @@
+/* Ensure the entire page has a black background */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000; 
+  color: white;
+  overflow-x: hidden;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+
+.hero-title {
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 8rem;
+  font-weight: bold;
+  margin: 5px 0;
+  text-align: left;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+.gallery-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.gallery-image {
+  width: 33.33vw;
+  height: 50vh;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  border: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+.about-me-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 40px 50px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.about-me-title {
+  flex: 0 0 150px;
+  font-size: 2.5rem;
+  font-family: 'Avenir Next', sans-serif;
+  text-align: left;
+  font-weight: bold;
+  margin-right: 10px;
+  white-space: nowrap;
+
+}
+
+.about-me-description {
+  flex: 1;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: left;
+  max-width: 1000px;
+  padding-left: 10px;
+  margin-left: 10px;
+  
+}
+.experience-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 50px;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.experience-title {
+  font-size: 2.5rem;
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: bold;
+  margin-bottom: 1px;
+}
+
+.experience-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  max-width: 1000px;
+  width: 100%; 
+}
+
+.experience-role {
+  flex: 1; /* Keeps the role titles within the left column width */
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Avenir Next', sans-serif;
+  text-align: left;
+  margin-right: 20px;
+  max-width: 300px;
+  min-width: 300px
+}
+
+.experience-description {
+  flex: 1;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: left;
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-right: 20px;
+  padding-right: 10px;
+  width: auto; /* Allow it to stretch */
+  min-width: 1000px;
+}
+
+
+.experience-description li {
+  margin-bottom: 10px; /* Spacing between bullet points */
+}
