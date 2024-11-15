@@ -70,20 +70,19 @@ function Home() {
         transition={{ duration: 1.5 }}
         viewport={{ once: true }}
       >
-        <div className="experience-title">Experiences</div>
-
         <div className="experience-item">
-          <h3 className="experience-role">UCSD School of Medicine<br />Machine Learning Engineer</h3>
+          <h3 className="experience-role">
+            UCSD School of Medicine - Machine Learning Engineer
+            <br />
+            <span className="experience-dates">June 2024 - Present</span>
+          </h3>
           <p className="experience-description">
-          - Developed an AI software using Convolutional Neural Networks (CNNs) to classify nasal cavity tumors as benign or cancerous, 
-          achieving high accuracy through data preprocessing, augmentation, and hyperparameter tuning <br />
-          - Collaborated with medical professionals to curate and annotate a robust dataset of tumor images; optimized model performance 
-          using techniques like transfer learning
-
+            - Developed an AI software using Convolutional Neural Networks (CNNs) to classify nasal cavity tumors as benign or cancerous, 
+            achieving high accuracy through data preprocessing, augmentation, and hyperparameter tuning. <br />
+            - Collaborated with medical professionals to curate and annotate a robust dataset of tumor images; optimized model performance 
+            using techniques like transfer learning.
           </p>
-          <p>            
-          </p>
-        </div>
+      </div>
 
         <div className="experience-item">
           <h3 className="experience-role">GoSaaS Inc. <br /> ML Engineering Intern</h3>
