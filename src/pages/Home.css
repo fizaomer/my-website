@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #000; 
+  background-color: #111114; 
   color: white;
   overflow-x: hidden;
 }
@@ -50,21 +50,18 @@ html, body {
 
 .about-me-section {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
   padding: 40px 50px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .about-me-title {
-  flex: 0 0 150px;
   font-size: 2.5rem;
   font-family: 'Avenir Next', sans-serif;
-  text-align: left;
   font-weight: bold;
-  margin-right: 10px;
-  white-space: nowrap;
+  margin-bottom: 9px;
 
 }
 
@@ -73,11 +70,14 @@ html, body {
   font-size: 1.2rem;
   line-height: 1.6;
   text-align: left;
-  max-width: 1000px;
-  padding-left: 10px;
-  margin-left: 10px;
-  
+  padding-left: 1px;
+  margin-left: 1px;
+  margin-right: 20px;
+  padding-right: 10px;
+  width: auto; /* Allow it to stretch */
+  min-width: 1000px;
 }
+
 .experience-section {
   display: flex;
   flex-direction: column;
@@ -119,14 +119,14 @@ html, body {
   font-size: 1.2rem;
   line-height: 1.6;
   text-align: left;
-  padding-left: 10px;
-  margin-left: 10px;
+  padding-left: 1px;
+  margin-left: 1px;
   margin-right: 20px;
   padding-right: 10px;
   width: auto; /* Allow it to stretch */
-  min-width: 1000px;
-}
+  min-width: 1470px;
 
+}
 
 .experience-description li {
   margin-bottom: 10px; /* Spacing between bullet points */
