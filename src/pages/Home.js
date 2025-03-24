@@ -1,149 +1,239 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import './Home.css';
-
-// Import your own images
 import image1 from '../assets/image1.JPG';
 import image2 from '../assets/image2.JPG';
 import image3 from '../assets/image3.JPG';
+import AMPL from '../assets/AMPL.JPG';
+import MTC from '../assets/MTC.JPG';
 
-const images = [image1, image2, image3];
+
+import { FiMapPin, FiExternalLink } from 'react-icons/fi';
 
 function Home() {
-  const [isAboutMeOpen, setAboutMeOpen] = useState(false);
-  const [isExperienceOpen, setExperienceOpen] = useState(false);
-
   return (
-    <motion.div
-      className="home-container"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-    >
-      {/* Hero Text */}
-      <motion.h1
-        className="hero-title"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-      >
-        FIZA OMER
-      </motion.h1>
+    <div className="page-wrapper">
+      {/* HERO SECTION */}
+      <div className="landing-container">
+        <motion.h1
+          className="landing-title"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+        >
+          FIZA OMER
+        </motion.h1>
 
-      {/* Image Row */}
-      <div className="gallery-row">
-        {images.map((src, index) => (
-          <motion.img
-            key={index}
-            src={src}
-            alt={`Gallery Image ${index + 1}`}
-            className="gallery-image"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, delay: index * 0.3 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-          />
-        ))}
+        <motion.p
+          className="landing-subtitle"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, delay: 0.8 }}
+        >
+          Machine Learning Engineer & Creative Technologist
+        </motion.p>
+
+        <motion.div
+          className="scroll-down"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, delay: 1.5 }}
+          onClick={() => {
+            const target = document.getElementById('about');
+            target?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          ↓ Scroll to explore
+        </motion.div>
       </div>
 
-      {/* About Me Dropdown */}
-      <motion.div className="about-me-section">
-        <div
-          className="about-me-title"
-          onClick={() => setAboutMeOpen(!isAboutMeOpen)}
-          style={{ cursor: 'pointer' }}
+      {/* ABOUT SECTION */}
+      <motion.section className="about-section" id="about">
+        <motion.img
+          src={image2}
+          alt="About"
+          className="about-image"
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 2, ease: 'easeInOut' }}
+          viewport={{ once: true, amount: 0.4 }}
+        />
+
+        <motion.div
+          className="about-text"
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 2, ease: 'easeInOut' }}
+          viewport={{ once: true, amount: 0.4 }}
         >
-          About Me
+          <h2>About Me</h2>
+          <p>
+            I'm a senior at UC San Diego studying Cognitive Science with an emphasis in Machine Learning & Neural Computation —
+            passionate about building meaningful, impactful tools.
+          </p>
+          <p>
+            My work lives at the intersection of AI and human-centered design — from healthcare to activism — where technology becomes
+            a tool for impact, not just automation. I’m most excited by projects that challenge the norms, elevate voices, or solve
+            real-world problems through intelligent systems and intuitive design.
+          </p>
+        </motion.div>
+      </motion.section>
+
+      {/* EXPERIENCE SECTION */}
+      <motion.section
+        className="experience-section"
+        id="experience"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5, ease: 'easeInOut' }}
+        viewport={{ once: true, amount: 0.4 }}
+      >
+        <h2 className="experience-title">Professional Experience</h2>
+
+        {/* Experience 1 */}
+        <details className="experience-item">
+          <summary>
+            <span className="job-title">Machine Learning Engineer @ UC San Diego School of Medicine</span>
+            <span className="date-range">Nov 2024 – Present</span>
+          </summary>
+          <div className="experience-content">
+            <div className="experience-meta">
+              <FiMapPin className="meta-icon" /> San Diego, CA
+              <span className="meta-separator">|</span>
+              <FiExternalLink className="meta-icon" />
+              <a href="https://medschool.ucsd.edu" target="_blank" rel="noopener noreferrer">
+                medschool.ucsd.edu
+              </a>
+            </div>
+            <p>
+              Built a CNN-based model for classifying nasal cavity tumors using TensorFlow. Collaborated with medical professionals to
+              optimize a diagnostic tool using 1,000+ image samples and contributed to data curation and pipeline deployment.
+            </p>
+            <div className="tech-tags">
+              <span>TensorFlow</span>
+              <span>Python</span>
+              <span>Medical AI</span>
+              <span>Data Curation</span>
+            </div>
+          </div>
+        </details>
+
+        {/* Experience 2 */}
+        <details className="experience-item">
+          <summary>
+            <span className="job-title">Machine Learning Engineering Intern @ GoSaaS Inc.</span>
+            <span className="date-range">July 2024 - Sept 2024</span>
+          </summary>
+          <div className="experience-content">
+            <div className="experience-meta">
+              <FiMapPin className="meta-icon" /> Irvine, CA
+              <span className="meta-separator">|</span>
+              <FiExternalLink className="meta-icon" />
+              <a href="https://gosaas.io" target="_blank" rel="noopener noreferrer">
+                gosaas.io
+              </a>
+            </div>
+            <p>
+              Built a Retrieval-Augmented Generation (RAG) system using Langchain and vector databases to improve search
+              across internal documentation. Reduced manual lookup time by 35%.
+            </p>
+            <div className="tech-tags">
+              <span>Langchain</span>
+              <span>Python</span>
+              <span>RAG</span>
+              <span>Vector DB</span>
+            </div>
+          </div>
+        </details>
+
+        {/* Experience 3 */}
+        <details className="experience-item">
+          <summary>
+            <span className="job-title">Software Engineering Intern @ GoSaaS Inc.</span>
+            <span className="date-range">Jan 2022 - March 2022</span>
+          </summary>
+          <div className="experience-content">
+            <div className="experience-meta">
+              <FiMapPin className="meta-icon" /> Irvine, CA
+              <span className="meta-separator">|</span>
+              <FiExternalLink className="meta-icon" />
+              <a href="https://gosaas.io" target="_blank" rel="noopener noreferrer">
+                gosaas.io
+              </a>
+            </div>
+            <p>
+              Contributed to the development and optimization of GoSaaS’s Archiver product, focused on secure storage and efficient access to historical data.
+              Collaborated with the engineering team to identify and resolve backend bugs, implement feature enhancements, and support cloud data migration strategies — improving performance and reducing system load.
+            </p>
+            <div className="tech-tags">
+              <span>Java</span>
+              <span>Spring</span>
+              <span>Cloud Migration</span>
+              <span>System Optimization</span>
+            </div>
+          </div>
+        </details>
+
+        {/* Experience 4 */}
+        <details className="experience-item">
+          <summary>
+            <span className="job-title">Product Management Intern @ Iradah</span>
+            <span className="date-range">Nov 2023 - Jan 2024</span>
+          </summary>
+          <div className="experience-content">
+            <div className="experience-meta">
+              <FiMapPin className="meta-icon" /> Remote
+              <span className="meta-separator">|</span>
+              <FiExternalLink className="meta-icon" />
+              <a href="https://iradah.co" target="_blank" rel="noopener noreferrer">
+                iradah.co
+              </a>
+            </div>
+            <p>
+              Orchestrated product lifecycle of two new apparel items, from design to launch, including
+              marketing and coordinating logistics between distributors and sellers.
+              Generated $40,000 in sales within two weeks of launch through collaborations with local
+              organizations at UC San Diego; profits supported humanitarian aid.
+            </p>
+            <div className="tech-tags">
+              <span>Product</span>
+              <span>Logistics</span>
+              <span>Design</span>
+              <span>Marketing</span>
+            </div>
+          </div>
+        </details>
+      </motion.section>
+      {/* LEADERSHIP SECTION */}
+      <section className="leadership-section">
+        <h2 className="leadership-title">Leadership Experience</h2>
+        <div className="leadership-grid">
+          <div className="leadership-card">
+            <img src={image1} alt="Senator" />
+            <div className="leadership-info">
+              <h3>Associated Students at UC San Diego</h3>
+              <p>Ellected senator representing over 40,000 undergraduate students at UC San Diego.</p>
+            </div>
+          </div>
+
+          <div className="leadership-card">
+            <img src={MTC} alt="MTC" />
+            <div className="leadership-info">
+              <h3>Muslim Tech Collaborative</h3>
+              <p>Co-Founder & Vice President of MTC, an organization at UC San Diego for Muslims in Tech.</p>
+            </div>
+          </div>
+
+          <div className="leadership-card">
+            <img src={AMPL} alt="AMPL" />
+            <div className="leadership-info">
+              <h3>Association of Muslims in Politics & Law</h3>
+              <p>Co-Founder & President of AMPL; a pre-law society for Muslims at UC San Diego.</p>
+            </div>
+          </div>
         </div>
-        <AnimatePresence>
-          {isAboutMeOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
-            >
-              <div className="about-me-description">
-                Welcome to my personal website made with React, JS, and CSS! I am a current senior at UC San Diego studying 
-                Cognitive Science ML and Computer Science. During my time at UCSD I've been fortunate enough to learn different 
-                niches in AI and have found a special interest in leveraging AI to solve complex challenges that make real impact 
-                on people's lifestyles. I’ve developed software for healthcare diagnostics and apps that optimize tech workflows.
-                Assides from tech, I love exploring new places and sitting by the ocean!
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
-
-      {/* Work Experience Dropdown */}
-      <motion.div className="experience-section">
-        <div
-          className="experience-title"
-          onClick={() => setExperienceOpen(!isExperienceOpen)}
-          style={{ cursor: 'pointer' }}
-        >
-          Work Experience
-        </div>
-        <AnimatePresence>
-          {isExperienceOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
-            >
-              <div className="experience-item">
-                <h3 className="experience-role">
-                  UCSD School of Medicine - Machine Learning Engineer
-                  <br />
-                  <span className="experience-dates">June 2024 - Present</span>
-                </h3>
-                <p className="experience-description">
-                  - Developing a Python based AI solution using Convolutional Neural Networks (CNNs) in TensorFlow to classify nasal cavity 
-                  tumors as benign or cancerous, reducing need for invasive procedures and accelerating non-invasive diagnostics. 
-                  Applied statistical methods for data preprocessing, augmentation, and hyperparameter tuning to optimize model performance <br />
-                  - Collaborating with medical professionals to curate a robust dataset of 1,000+ tumor images; performing exploratory data 
-                  analysis and deploying insights for improved medical diagnostics
-                </p>
-              </div>
-
-              <div className="experience-item">
-                <h3 className="experience-role">GoSaaS Inc. <br /> ML Engineering Intern</h3>
-                <p className="experience-description">
-                  - Designed a Python based Retrieval-Augmented Generation (RAG) system using Langchain, SpaCy and vector databases to 
-                  streamline access to client and product specifications, history, and configuration data, regardless of query specificity– 
-                  improving search relevance by 35% <br />
-                  - Implemented Natural Language Processing (NLP) techniques to develop ML applications, with scikit-learn and PyTorch for 
-                  integration into client software, reducing manual effort by 30%
-                </p>
-              </div>
-
-              <div className="experience-item">
-                <h3 className="experience-role">Iradah <br /> Product Management Intern</h3>
-                <p className="experience-description">
-                  - Orchestrated product lifecycle of two new apparel items, from design to launch, including marketing and coordinating 
-                  logistics between distributors and sellers <br />
-                  - Generated $40,000 in sales within two weeks of launch through collaborations with local organizations at UC San Diego; 
-                  profits supported humanitarian aid
-
-                </p>
-              </div>
-
-              <div className="experience-item">
-                <h3 className="experience-role">GoSaaS Inc. <br /> Software Engineering Intern</h3>
-                <p className="experience-description">
-                  - Contributed to the design and development of GoSaaS’s product Archiver, specializing in storage and accessibility of historical 
-                  data, by identifying and resolving software bugs and issues. <br />
-                  - Assisted in executing test plans to ensure the functionality and performance of the software, specifically in optimizing efficiency 
-                  of only migrating relevant data to the cloud.
-                </p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    </motion.div>
+      </section>
+    </div>
   );
 }
 

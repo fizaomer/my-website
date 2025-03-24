@@ -1,133 +1,252 @@
-/* Ensure the entire page has a black background */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background-color: #111114; 
-  color: white;
-  overflow-x: hidden;
+.page-wrapper {
+  scroll-behavior: smooth;
+  font-family: 'Avenir Next', sans-serif;
 }
 
-.home-container {
+/* HERO section */
+.landing-container {
+  height: 100vh;
+  background-color: #0a0a0a;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0;
-  margin: 0;
-  width: 100vw;
-}
-
-.hero-title {
-  font-family: 'Avenir Next', sans-serif;
-  font-size: 8rem;
-  font-weight: bold;
-  margin: 5px 0;
-  text-align: left;
-  padding-left: 20px;
-  margin-left: 20px;
-}
-
-.gallery-row {
-  display: flex;
-  justify-content: space-between;
-  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   overflow: hidden;
 }
 
-.gallery-image {
-  width: 33.33vw;
-  height: 50vh;
-  object-fit: cover;
+.landing-title {
+  font-size: 7rem;
+  font-weight: 800;
   margin: 0;
-  padding: 0;
-  border: none;
-  transition: transform 0.3s ease-in-out;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
-.gallery-image:hover {
-  transform: scale(1.05);
+.landing-subtitle {
+  font-size: 1.4rem;
+  margin-top: 20px;
+  text-align: center;
+  color: #b3b3b3;
 }
 
-.about-me-section {
+.scroll-down {
+  position: absolute;
+  bottom: 40px;
+  font-size: 1rem;
+  opacity: 0.6;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* ABOUT section */
+.about-section {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 40px 50px;
-  width: 100%;
-  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 100px 80px;
+  min-height: 100vh;
+  background-color: #111114;
+  flex-wrap: wrap;
 }
 
-.about-me-title {
-  font-size: 2.5rem;
-  font-family: 'Avenir Next', sans-serif;
-  font-weight: bold;
-  margin-bottom: 9px;
-
+.about-image {
+  width: 500px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.about-me-description {
-  flex: 1;
+.about-text {
+  max-width: 600px;
+  color: #e0e0e0;
   font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: left;
-  padding-left: 1px;
-  margin-left: 1px;
-  margin-right: 20px;
-  padding-right: 10px;
-  width: auto; /* Allow it to stretch */
-  min-width: 1000px;
+  line-height: 1.7;
 }
 
-.experience-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 40px 50px;
-  width: 100%;
-  box-sizing: border-box;
+.about-text h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: white;
+}
 
+/* EXPERIENCE section */
+.experience-section {
+  background-color: #0a0a0a;
+  padding: 100px 60px;
+  color: white;
 }
 
 .experience-title {
-  font-size: 2.5rem;
-  font-family: 'Avenir Next', sans-serif;
-  font-weight: bold;
-  margin-bottom: 1px;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  text-align: center;
+  color: white;
 }
 
 .experience-item {
+  background-color: #121e16;
+  padding: 20px 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: 1px solid #1a3d2e;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.experience-item summary {
+  font-weight: 600;
+  font-size: 1.2rem;
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 30px;
-  max-width: 1000px;
-  width: 100%; 
+  justify-content: space-between;
+  list-style: none;
+  color: #fafafa;
+  transition: color 0.3s;
 }
 
-.experience-role {
-  flex: 1; /* Keeps the role titles within the left column width */
-  font-size: 1.2rem;
-  font-weight: bold;
-  font-family: 'Avenir Next', sans-serif;
+.experience-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.experience-item[open] summary {
+  color: #b4ffce;
+}
+
+.date-range {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Dropdown content box */
+.experience-content {
+  background-color: #0f1c14;
+  border: 1px solid #1a3d2e;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 0 30px;
+  transform: translateY(-10px);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.experience-item[open] .experience-content {
+  opacity: 1;
+  transform: translateY(0px);
+  max-height: 1000px;
+  padding: 25px 30px;
+}
+
+.experience-meta {
+  font-size: 0.95rem;
+  color: #9be4b2;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.experience-meta a {
+  color: #a4fbc4;
+  text-decoration: underline;
+  font-size: 0.95rem;
+}
+
+.meta-icon {
+  font-size: 1.1rem;
+  margin-right: 5px;
+  color: #a4fbc4;
+  vertical-align: middle;
+}
+
+.meta-separator {
+  color: #668f75;
+}
+
+.tech-tags {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tech-tags span {
+  background-color: #1a3d2e;
+  color: #c8fadc;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+/* LEADERSHIP SECTION */
+.leadership-section {
+  background-color: #111114;
+  padding: 80px 60px;
+  color: white;
+  text-align: center;
+}
+
+.leadership-title {
+  color: white;
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.leadership-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.leadership-card {
+  background-color: #1b1b1e;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.leadership-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 255, 150, 0.15);
+}
+
+.leadership-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.leadership-info {
+  padding: 20px;
   text-align: left;
-  margin-right: 20px;
-  max-width: 300px;
-  min-width: 300px
 }
 
-.experience-description {
-  flex: 1;
+.leadership-info h3 {
   font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: left;
-  padding-left: 1px;
-  margin-left: 1px;
-  margin-right: 20px;
-  padding-right: 10px;
-  width: auto; /* Allow it to stretch */
-  min-width: 1470px;
-
+  margin-bottom: 10px;
+  color: #aefada;
 }
 
-.experience-description li {
-  margin-bottom: 10px; /* Spacing between bullet points */
+.leadership-info p {
+  font-size: 0.95rem;
+  color: #cccccc;
+  line-height: 1.5;
 }
